@@ -54,7 +54,7 @@ def update_pie (entered_site):
     filtered_df = spacex_df.groupby('Launch Site').size().reset_index(name='name size')
     if entered_site == 'ALL':
         pie_fig = px.pie(filtered_df, values='name size', names='Launch Site', 
-        title=f'Total Success Launches by Site')
+                  title=f'Total Success Launches by Site')
         return pie_fig
     else:
         filtered_dfs = filtered_df[filtered_df['Launch Site'] == entered_site].groupby('class').size().reset_index(name='class size')
@@ -78,7 +78,7 @@ def update_scatter (entered_site, slider_position):
     else:
         scat_dfs = scat_df[scat_df['Launch Site'] == entered_site]
         scat_fig = px.scatter(scat_dfs, x="Payload Mass (kg)", y="class", color="Booster Version Category",
-                title=f'Correlation between Payload and Success for Site {entered_site}'') 
+                title=f'Correlation between Payload and Success for Site {entered_site}') 
         return scat_fig
 
 # Run the app
